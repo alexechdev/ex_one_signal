@@ -89,6 +89,14 @@ iex> Notification.new
 iex> |> add_data(:targetUrl, "https://example.com")
 %Notification{data: %{url: "https://example.com"}}
 ```
+### Adding Button
+Notifications can contain a custome buttons (e.g. iOS or Android applications).
+
+``` elixir
+iex> Notification.new
+iex> |> add_button(%{id: "accept", text: "Accept", icon: ""})
+%Notification{buttons: [%{id: "accept", text: "Accept", icon: ""}]}
+```
 
 ### Asynchonous Delivery
 If you don't want to lock up your current process waiting on the network request
