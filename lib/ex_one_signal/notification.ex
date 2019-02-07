@@ -1,7 +1,7 @@
 defmodule ExOneSignal.Notification do
   alias ExOneSignal.Notification
 
-  defstruct headings: %{}, contents: %{}, include_player_ids: [], data: %{}
+  defstruct headings: %{}, contents: %{}, include_player_ids: [], data: %{}, buttons: []
 
   def new, do: %Notification{}
 
@@ -24,4 +24,8 @@ defmodule ExOneSignal.Notification do
   def add_data(%Notification{} = notification, key, value)
     when is_atom(key) and is_bitstring(value),
     do: put_in(notification, [Access.key(:data), key], value)
+    
+  def add_button(%Notification{buttons: buttons} = notification, notification_button)
+      when is_map(notification_button),
+      do: %{notification | buttons: [notification_button | buttons]}
 end
