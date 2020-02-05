@@ -1,8 +1,6 @@
 defmodule ExOneSignal.Notification do
   alias ExOneSignal.Notification
 
-  defstruct headings: %{}, contents: %{}, include_player_ids: [], data: %{}, buttons: []
-
   defstruct \
     headings: %{},
     contents: %{},
